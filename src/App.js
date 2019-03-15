@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './components/withWeather';
+import { Test } from './components/Test';
 // import './App.css';
 
 class App extends Component {
@@ -19,6 +21,7 @@ class App extends Component {
             Learn React
           </a>
         </header> */}
+        <Test />
       </div>
     );
   }
