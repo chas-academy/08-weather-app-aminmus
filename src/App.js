@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import './components/withWeather';
-import { Test, TestSuper } from './components/Test';
+import Currently from './components/Currently';
 // import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
@@ -21,10 +20,9 @@ class App extends Component {
             Learn React
           </a>
         </header> */}
-        <TestSuper />
+        <Currently />
       </div>
     );
   }
 }
 
-export default App;

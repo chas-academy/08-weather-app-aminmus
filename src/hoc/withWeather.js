@@ -1,7 +1,8 @@
 import React from 'react'
 
+// High Order Component for fetching weather data
 const withWeather = WrappedComponent => {
-  const fetchWeather = () => {
+  const fetchWeather = (location) => {
 
     // `https://api.darksky.net/forecast/${key}/${latitude},${longitude}`
     return   fetch('https://cors.io/?https://api.darksky.net/forecast/44ac77a2c728fd9b159d612f3f3b227f/59.329323,18.068581')
