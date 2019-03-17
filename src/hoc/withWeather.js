@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 // High Order Component for fetching weather data
 const withWeather = WrappedComponent => {

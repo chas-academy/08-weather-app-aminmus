@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
 import withWeather from '../hoc/withWeather.js';
+import withGeolocation from '../hoc/withGeolocation.js';
 
 // Component for current weather
- const Currently = ({ fetchWeather, props }) => {
+ const Currently = ({ getLocation, fetchWeather, props }) => {
+   getLocation();
   fetchWeather()
   .then(res => {
     console.log(res);
@@ -14,6 +16,6 @@ import withWeather from '../hoc/withWeather.js';
 
 }
 
-export default withWeather(Currently);
+export default withWeather(withGeolocation(Currently));
 
 
