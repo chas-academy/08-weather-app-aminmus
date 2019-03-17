@@ -8,6 +8,7 @@ class Currently extends Component {
     super(props);
     this.state = {};
     this.fetchLocation = this.fetchLocation.bind(this);
+    this.getWeather = this.getWeather.bind(this);
   }
 
   async fetchLocation() {
@@ -17,12 +18,25 @@ class Currently extends Component {
     return location;
   }
 
+  async getWeather(location) {
+    const { fetchWeather } = this.props;
+
+    const weather = await fetchWeather(location);
+    console.log(weather);
+    return weather;
+  }
+
+
   componentDidMount() {
     // Get the location and set it in State
     this.fetchLocation()
       .then(res => {
         this.setState({ location: res });
       });
+  }
+
+  componentDidUpdate() {
+    this.getWeather(this.state.location);
   }
 
   render() {
@@ -41,7 +55,7 @@ class Currently extends Component {
       </div>
     );
   };
-
 }
+
 
 export default withGeolocation(withWeather(Currently));
