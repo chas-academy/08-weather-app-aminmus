@@ -20,8 +20,9 @@ class Currently extends Component {
 
   async getWeather(location) {
     const { fetchWeather } = this.props;
+    let tempUnits = "si"; // Set default temperature unit to si (celsius)
 
-    const weather = await fetchWeather(location);
+    const weather = await fetchWeather(location, tempUnits);
     console.log(weather);
     return weather;
   }
