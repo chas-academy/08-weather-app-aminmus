@@ -6,7 +6,9 @@ import withGeolocation from '../hoc/withGeolocation.js';
 class Currently extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      tempUnits: "si"
+    };
     this.fetchLocation = this.fetchLocation.bind(this);
     this.getWeather = this.getWeather.bind(this);
   }
@@ -20,7 +22,7 @@ class Currently extends Component {
 
   async getWeather(location) {
     const { fetchWeather } = this.props;
-    let tempUnits = "si"; // Set default temperature unit to si (celsius)
+    const { tempUnits } = this.state; // Set default temperature unit to si (celsius)
 
     const weather = await fetchWeather(location, tempUnits);
     console.log(weather);
