@@ -4,7 +4,7 @@ import React from 'react';
 const withWeather = WrappedComponent => {
   const fetchWeather = (location, units) => {
     // `https://api.darksky.net/forecast/${key}/${latitude},${longitude}?${optionalParams}`
-    return fetch(`https://cors.io/?https://api.darksky.net/forecast/44ac77a2c728fd9b159d612f3f3b227f/${location.latitude},${location.longitude}?units=${units}`)
+    return fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/44ac77a2c728fd9b159d612f3f3b227f/${location.latitude},${location.longitude}?units=${units}`)
       .then(res => res.json())
       .then(res => {
         return res;
