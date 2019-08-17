@@ -11,7 +11,7 @@ const withWeather = (WrappedComponent) => {
 
       return weather.json();
     } catch (error) {
-      console.error(error.message);
+      return console.error(error.message);
     }
   };
   return (props) => <WrappedComponent fetchWeather={fetchWeather} {...props} />;

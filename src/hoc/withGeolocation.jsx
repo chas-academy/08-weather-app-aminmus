@@ -3,7 +3,7 @@ import React from 'react';
 
 // High Order Component for getting users location
 const withGeolocation = (WrappedComponent) => {
-  const getLocation = () => new Promise((resolve, reject) => {
+  const fetchLocation = () => new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const { latitude, longitude } = pos.coords;
@@ -17,7 +17,7 @@ const withGeolocation = (WrappedComponent) => {
 
   return (props) => (
     // Wrapped component with location inside state(?)
-    <WrappedComponent getLocation={getLocation} {...props} />
+    <WrappedComponent fetchLocation={fetchLocation} {...props} />
   );
 };
 

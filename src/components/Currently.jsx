@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Component for current weather
 const Currently = ({ location }) => {
@@ -18,6 +19,14 @@ const Currently = ({ location }) => {
       {showLocation}
     </div>
   );
+};
+
+Currently.propTypes = {
+  location: PropTypes.oneOfType([PropTypes.bool, PropTypes.objectOf(PropTypes.number)]),
+};
+
+Currently.defaultProps = {
+  location: false,
 };
 
 export default Currently;

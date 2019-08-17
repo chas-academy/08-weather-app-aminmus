@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import Currently from './components/Currently';
 import withWeather from './hoc/withWeather';
 import withGeolocation from './hoc/withGeolocation';
+
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +17,6 @@ class App extends Component {
     this.setWeather = this.setWeather.bind(this);
     this.setLocation = this.setLocation.bind(this);
   }
-
 
   async componentDidMount() {
     // Get the location and set it in State
@@ -50,9 +52,9 @@ class App extends Component {
 
   // Set location in state
   async setLocation() {
-    const { getLocation } = this.props;
+    const { fetchLocation } = this.props;
     try {
-      const location = await getLocation();
+      const location = await fetchLocation();
       this.setState({ location });
 
       return console.log('Location', location);
@@ -75,5 +77,10 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  fetchWeather: PropTypes.func.isRequired,
+  fetchLocation: PropTypes.func.isRequired,
+};
 
 export default withGeolocation(withWeather(App));
