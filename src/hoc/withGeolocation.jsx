@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/jsx-props-no-spreading */ // Because this is a HOC
 import React from 'react';
 
 // High Order Component for getting users location
