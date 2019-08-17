@@ -14,23 +14,18 @@ class App extends Component {
   }
 
 
-  componentDidMount() {
+  async componentDidMount() {
     // Get the location and set it in State
-    this.fetchLocation()
-      .then((res) => {
-        this.setState({ location: res });
-      });
+    const location = await this.fetchLocation();
+    this.setState({ location });
   }
 
-  componentDidUpdate() {
+  async componentDidUpdate() {
     // TODO: Change below to allow setting a new weather on location switch
     // This prevents making unnecessary API calls
     const { location, weather } = this.state;
     if (location && !weather) {
-      this.getWeather(location)
-        .then((res) => {
-          this.setState({ weather: res });
-        });
+      this.setState({ weather: await this.getWeather() });
       console.log('location set');
     } else {
       console.log('location already set, no new weather will be set');
