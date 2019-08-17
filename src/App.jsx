@@ -9,43 +9,56 @@ class App extends Component {
     this.state = {
       tempUnits: 'si',
     };
-    this.fetchLocation = this.fetchLocation.bind(this);
-    this.getWeather = this.getWeather.bind(this);
+
+    // Only need to bind if we actually pass these functions to an element or component
+    this.setWeather = this.setWeather.bind(this);
+    this.setLocation = this.setLocation.bind(this);
   }
 
 
   async componentDidMount() {
     // Get the location and set it in State
-    const location = await this.fetchLocation();
-    this.setState({ location });
+    this.setLocation();
   }
 
   async componentDidUpdate() {
     // TODO: Change below to allow setting a new weather on location switch
-    // This prevents making unnecessary API calls
     const { location, weather } = this.state;
+
+    // This prevents making unnecessary API calls
     if (location && !weather) {
-      this.setState({ weather: await this.getWeather() });
+      this.setWeather(location);
       console.log('location set');
     } else {
       console.log('location already set, no new weather will be set');
     }
   }
 
-  async getWeather(location) {
+  // Set weather in state
+  async setWeather(location) {
     const { fetchWeather } = this.props;
-    const { tempUnits } = this.state; // Set default temperature unit to si (celsius)
+    const { tempUnits } = this.state;
+    try {
+      const weather = await fetchWeather(location, tempUnits);
+      this.setState({ weather });
 
-    const weather = await fetchWeather(location, tempUnits);
-    console.log(weather);
-    return weather;
+      return console.log('Weather', weather);
+    } catch (error) {
+      return console.error(error);
+    }
   }
 
-  async fetchLocation() {
+  // Set location in state
+  async setLocation() {
     const { getLocation } = this.props;
+    try {
+      const location = await getLocation();
+      this.setState({ location });
 
-    const location = await getLocation();
-    return location;
+      return console.log('Location', location);
+    } catch (error) {
+      return console.error(error.message);
+    }
   }
 
   render() {
