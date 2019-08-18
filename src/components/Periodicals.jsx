@@ -16,29 +16,52 @@ const Item = styled.div`
 
 // Component for periodical (i.e. every 3 hours) weather forecast
 // TODO: Replace hardcoded information with data from props
-const Periodicals = () => (
-  <Container>
-    <Item>
-      <p>19:00</p>
-      <p>mostly cloudy</p>
-      <FontAwesomeIcon icon={faSun} />
-      <p>20°C</p>
-    </Item>
+const Periodicals = ({ weather }) => {
+  let showWeather;
 
-    <Item>
-      <p>22:00</p>
-      <p>sparse clouds</p>
-      <FontAwesomeIcon icon={faSun} />
-      <p>20°C</p>
-    </Item>
-  </Container>
-);
+  if (weather) {
+    const { data } = weather.hourly;
 
+    const today = {
+      ...weather.hourly, data: [data[0], data[3], data[6], data[9], data[12]],
+    };
+
+    showWeather = (
+      <Container>
+        <h2>Tri hourly</h2>
+        <h3>{today.summary}</h3>
+        {
+          today.data.map((element) => (
+            <Item>
+              {/* Unix Timestamp */}
+              <p>{element.time}</p>
+              <p>{element.summary}</p>
+              {/* TODO: Create and integrate a dynamic icon picker, below icon is placeholder */}
+              <FontAwesomeIcon icon={faSun} />
+              {/* TODO: Check units from state and add correct units */}
+              <p>{element.temperature}</p>
+            </Item>
+          ))
+        }
+      </Container>
+    );
+  } else {
+    showWeather = (
+      <p>loading...</p>
+    );
+  }
+
+  return (
+    showWeather
+  );
+};
 
 Periodicals.propTypes = {
+  weather: PropTypes.objectOf(PropTypes.object),
 };
 
 Periodicals.defaultProps = {
+  weather: false,
 };
 
 export default Periodicals;
