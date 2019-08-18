@@ -5,6 +5,7 @@ import withWeather from './hoc/withWeather';
 import withGeolocation from './hoc/withGeolocation';
 import Currently from './components/Currently';
 import Periodicals from './components/Periodicals';
+import Daily from './components/Daily';
 
 
 class App extends Component {
@@ -75,6 +76,7 @@ class App extends Component {
           tempUnits={tempUnits}
         />
         <Periodicals />
+        <Daily />
       </div>
     );
   }
