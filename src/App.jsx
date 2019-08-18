@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Currently from './components/Currently';
 import withWeather from './hoc/withWeather';
 import withGeolocation from './hoc/withGeolocation';
+import Currently from './components/Currently';
+import Periodicals from './components/Periodicals';
 
 
 class App extends Component {
@@ -73,6 +74,7 @@ class App extends Component {
           weather={weather}
           tempUnits={tempUnits}
         />
+        <Periodicals />
       </div>
     );
   }

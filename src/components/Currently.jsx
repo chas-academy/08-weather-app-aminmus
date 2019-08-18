@@ -24,26 +24,18 @@ const Currently = ({ location }) => {
   // If location is set in state, render location. Otherwise render loading indicator.
   const showLocation = location
     ? (
-      <>
-        <Wrapper>
-          <Info>
-            <FontAwesomeIcon icon={faSun} />
-            <StyledUl>
-              <li>16:00</li>
-              <li>22°C</li>
-              <li>humidity: 60%</li>
-              <li>wind speed: 11km/h</li>
-              <li>sunrise: 07:00</li>
-            </StyledUl>
-          </Info>
-        </Wrapper>
-
-
-        <ul>
-          <li>{location.latitude}</li>
-          <li>{location.longitude}</li>
-        </ul>
-      </>
+      <Wrapper>
+        <Info>
+          <FontAwesomeIcon icon={faSun} />
+          <StyledUl>
+            <li>16:00</li>
+            <li>22°C</li>
+            <li>humidity: 60%</li>
+            <li>wind speed: 11km/h</li>
+            <li>sunrise: 07:00</li>
+          </StyledUl>
+        </Info>
+      </Wrapper>
     ) : (
       <p>Loading...</p>
     );
