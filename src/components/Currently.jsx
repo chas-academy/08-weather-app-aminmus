@@ -17,42 +17,51 @@ const StyledUl = styled.ul`
   list-style-type: none;
 `;
 
-
 // Component for current weather
-// TODO: Replace hardcoded information with data from props
-const Currently = ({ location }) => {
-  // If location is set in state, render location. Otherwise render loading indicator.
-  const showLocation = location
-    ? (
+const Currently = ({ location, weather }) => {
+  let showWeather;
+
+  if (weather && location) {
+    const {
+      time, summary, temperature, humidity, windSpeed,
+    } = weather.currently;
+
+    showWeather = (
       <Wrapper>
         <Info>
+          {/* TODO: Create and integrate a dynamic icon picker, below icon is placeholder */}
           <FontAwesomeIcon icon={faSun} />
           <StyledUl>
-            <li>16:00</li>
-            <li>22°C</li>
-            <li>humidity: 60%</li>
-            <li>wind speed: 11km/h</li>
-            <li>sunrise: 07:00</li>
+            {/* Unix Timestamp */}
+            <li>{time}</li>
+            <li>{summary}</li>
+            {/* TODO: Check units from state and add correct units */}
+            <li>{temperature}</li>
+            <li>{humidity}</li>
+            <li>{windSpeed}</li>
           </StyledUl>
         </Info>
       </Wrapper>
-    ) : (
-      <p>Loading...</p>
     );
+  } else {
+    showWeather = (
+      <p>Loading weather...</p>
+    );
+  }
 
   return (
-    <div>
-      {showLocation}
-    </div>
+    showWeather
   );
 };
 
 Currently.propTypes = {
   location: PropTypes.oneOfType([PropTypes.bool, PropTypes.objectOf(PropTypes.number)]),
+  weather: PropTypes.objectOf(PropTypes.object),
 };
 
 Currently.defaultProps = {
   location: false,
+  weather: false,
 };
 
 export default Currently;

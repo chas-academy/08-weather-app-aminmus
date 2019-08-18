@@ -1,0 +1,16 @@
+Names of icon names from darksky api and the respective icons I have chosen to represent them with.
+
+  format: darksky icon - font awesome icon
+  
+  clear-day - sun
+  clear-night - moon
+  rain - cloud-rain
+  snow - snowflake
+  sleet - snowflake (?)
+  wind - wind
+  fog - smog
+  cloudy - cloud
+  partly-cloudy-day - cloud-sun
+  partly-cloudy-night - cloud-moon
+
+  fallback needed for other icon codes that may come in the future from darksky api.

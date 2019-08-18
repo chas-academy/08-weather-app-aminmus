@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
 
-
 const Container = styled.div`
   background-color: #72e0d1;
   display: flex;
@@ -38,7 +37,6 @@ const Daily = () => (
     </Night>
   </Container>
 );
-
 
 Daily.propTypes = {
 };

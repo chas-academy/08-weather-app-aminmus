@@ -75,8 +75,12 @@ class App extends Component {
           weather={weather}
           tempUnits={tempUnits}
         />
-        <Periodicals />
-        <Daily />
+        <Periodicals
+          weather={weather}
+        />
+        <Daily
+          weather={weather}
+        />
       </div>
     );
   }
