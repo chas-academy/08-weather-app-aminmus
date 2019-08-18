@@ -22,8 +22,12 @@ const Periodicals = ({ weather }) => {
   if (weather) {
     const { data } = weather.hourly;
 
+    // Get every third element from the first 24 elements, (weather of every third hour)
+    const triHourlyData = data.filter((element, index) => index % 3 === 0 && index < 24);
+
+    // Contains the data we want to render
     const today = {
-      ...weather.hourly, data: [data[0], data[3], data[6], data[9], data[12]],
+      ...weather.hourly, triHourlyData,
     };
 
     showWeather = (
@@ -31,7 +35,7 @@ const Periodicals = ({ weather }) => {
         <h2>Tri hourly</h2>
         <h3>{today.summary}</h3>
         {
-          today.data.map((element) => (
+          today.triHourlyData.map((element) => (
             <Item>
               {/* Unix Timestamp */}
               <p>{element.time}</p>
