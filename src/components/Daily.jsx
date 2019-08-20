@@ -13,7 +13,8 @@ const Night = styled(Day)``;
 
 const Daily = ({ weather }) => {
   const {
-    time, summary, sunriseTime, sunsetTime, temperatureHigh, temperatureLow, icon,
+    time, summary, sunriseTime, sunsetTime, temperatureHigh, temperatureLow,
+    //  icon,
   } = weather;
   return (
     <>

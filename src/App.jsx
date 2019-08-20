@@ -6,6 +6,7 @@ import withGeolocation from './hoc/withGeolocation';
 import Currently from './components/Currently';
 import Periodicals from './components/Periodicals';
 import Dailies from './components/Dailies';
+import LoadingIndicator from './components/LoadingIndicator';
 
 
 class App extends Component {
@@ -70,17 +71,23 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Currently
-          location={location}
-          weather={weather}
-          tempUnits={tempUnits}
-        />
-        <Periodicals
-          weather={weather}
-        />
-        <Dailies
-          weather={weather}
-        />
+        {weather ? (
+          <>
+            <Currently
+              location={location}
+              weather={weather}
+              tempUnits={tempUnits}
+            />
+            <Periodicals
+              weather={weather}
+            />
+            <Dailies
+              weather={weather}
+            />
+          </>
+        ) : (
+          <LoadingIndicator />
+        )}
       </div>
     );
   }

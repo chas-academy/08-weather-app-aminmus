@@ -10,7 +10,8 @@ const Item = styled.div`
 
 const Periodical = ({ weather }) => {
   const {
-    time, summary, temperature, icon,
+    time, summary, temperature,
+    //  icon,
   } = weather;
 
   return (

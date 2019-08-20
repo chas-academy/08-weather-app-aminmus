@@ -18,49 +18,36 @@ const StyledUl = styled.ul`
 `;
 
 // Component for current weather
-const Currently = ({ location, weather }) => {
-  let showWeather;
+const Currently = ({ weather }) => {
+  const {
+    time, summary, temperature, humidity, windSpeed,
+  } = weather.currently;
 
-  if (weather && location) {
-    const {
-      time, summary, temperature, humidity, windSpeed,
-    } = weather.currently;
-
-    showWeather = (
-      <Wrapper>
-        <Info>
-          {/* TODO: Create and integrate a dynamic icon picker, below icon is placeholder */}
-          <FontAwesomeIcon icon={faSun} />
-          <StyledUl>
-            {/* Unix Timestamp */}
-            <li>{time}</li>
-            <li>{summary}</li>
-            {/* TODO: Check units from state and add correct units */}
-            <li>{temperature}</li>
-            <li>{humidity}</li>
-            <li>{windSpeed}</li>
-          </StyledUl>
-        </Info>
-      </Wrapper>
-    );
-  } else {
-    showWeather = (
-      <p>Loading weather...</p>
-    );
-  }
 
   return (
-    showWeather
+    <Wrapper>
+      <Info>
+        {/* TODO: Create and integrate a dynamic icon picker, below icon is placeholder */}
+        <FontAwesomeIcon icon={faSun} />
+        <StyledUl>
+          {/* Unix Timestamp */}
+          <li>{time}</li>
+          <li>{summary}</li>
+          {/* TODO: Check units from state and add correct units */}
+          <li>{temperature}</li>
+          <li>{humidity}</li>
+          <li>{windSpeed}</li>
+        </StyledUl>
+      </Info>
+    </Wrapper>
   );
 };
 
 Currently.propTypes = {
-  location: PropTypes.oneOfType([PropTypes.bool, PropTypes.objectOf(PropTypes.number)]),
   weather: PropTypes.objectOf(PropTypes.object),
 };
 
 Currently.defaultProps = {
-  location: false,
   weather: false,
 };
 
