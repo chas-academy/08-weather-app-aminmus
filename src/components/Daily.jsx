@@ -13,7 +13,7 @@ const Night = styled(Day)``;
 
 const Daily = ({ weather }) => {
   const {
-    time, summary, sunrise, sunset, temperatureHigh, temperatureLow, icon,
+    time, summary, sunriseTime, sunsetTime, temperatureHigh, temperatureLow, icon,
   } = weather;
   return (
     <>
@@ -23,14 +23,14 @@ const Daily = ({ weather }) => {
         {/* TODO: Create and integrate a dynamic icon picker, below icon is placeholder */}
         <FontAwesomeIcon icon={faSun} />
         <p>{summary}</p>
-        <p>{sunrise}</p>
+        <p>{sunriseTime}</p>
         <p>{temperatureHigh}</p>
       </Day>
 
       <Night>
         <p>Night</p>
         <FontAwesomeIcon icon={faSun} />
-        <p>{sunset}</p>
+        <p>{sunsetTime}</p>
         <p>{temperatureLow}</p>
       </Night>
     </>

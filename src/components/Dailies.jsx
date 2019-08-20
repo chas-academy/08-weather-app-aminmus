@@ -12,8 +12,7 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-// Component for daily weather forecast
-// TODO: Replace hardcoded information with data from props
+// Container for Daily components to show multiple day weather forecast
 const Dailies = ({ weather }) => {
   let showWeather;
   const { daily } = weather;
@@ -24,7 +23,11 @@ const Dailies = ({ weather }) => {
         <h2>Coming days</h2>
         {
           daily.data.map((dayWeather) => (
-            <Daily weather={dayWeather} />
+            // Using the Unix Timestamp of the day as key
+            <Daily
+              key={dayWeather.time.toString()}
+              weather={dayWeather}
+            />
           ))
         }
       </Container>
