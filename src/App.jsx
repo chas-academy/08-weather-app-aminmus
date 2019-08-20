@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faSun, faMoon, faCloudRain, faSnowflake, faWind, faSmog, faCloud, faCloudSun, faCloudMoon,
+} from '@fortawesome/free-solid-svg-icons';
 
 import withWeather from './hoc/withWeather';
 import withGeolocation from './hoc/withGeolocation';
@@ -8,6 +12,8 @@ import Periodicals from './components/Periodicals';
 import Dailies from './components/Dailies';
 import LoadingIndicator from './components/LoadingIndicator';
 
+// Make these font-awesome icons available elsewhere in project without need of import
+library.add(faSun, faMoon, faCloudRain, faSnowflake, faWind, faSmog, faCloud, faCloudSun, faCloudMoon);
 
 class App extends Component {
   constructor(props) {
@@ -84,8 +90,8 @@ class App extends Component {
             />
           </>
         ) : (
-          <LoadingIndicator />
-        )}
+            <LoadingIndicator />
+          )}
       </div>
     );
   }

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun } from '@fortawesome/free-solid-svg-icons';
 
 
 const Wrapper = styled.div`
@@ -27,7 +26,7 @@ const Currently = ({ weather }) => {
     <Wrapper>
       <Info>
         {/* TODO: Create and integrate a dynamic icon picker, below icon is placeholder */}
-        <FontAwesomeIcon icon={faSun} />
+        <FontAwesomeIcon icon="sun" />
         <StyledUl>
           {/* Unix Timestamp */}
           <li>{time}</li>
