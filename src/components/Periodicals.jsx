@@ -42,7 +42,7 @@ const Periodicals = ({ weather }) => {
 };
 
 Periodicals.propTypes = {
-  weather: PropTypes.objectOf(PropTypes.object),
+  weather: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number]),
 };
 
 Periodicals.defaultProps = {

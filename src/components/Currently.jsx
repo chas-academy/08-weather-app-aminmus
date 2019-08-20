@@ -43,7 +43,7 @@ const Currently = ({ weather }) => {
 };
 
 Currently.propTypes = {
-  weather: PropTypes.objectOf(PropTypes.object),
+  weather: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number]),
 };
 
 Currently.defaultProps = {
