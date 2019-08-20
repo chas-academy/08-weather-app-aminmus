@@ -67,22 +67,20 @@ class App extends Component {
   }
 
   render() {
-    const { location, weather, tempUnits } = this.state;
+    const { weather } = this.state;
 
     return (
       <div className="App">
         {weather ? (
           <>
             <Currently
-              location={location}
-              weather={weather}
-              tempUnits={tempUnits}
+              weather={weather.currently}
             />
             <Periodicals
-              weather={weather}
+              weather={weather.hourly}
             />
             <Dailies
-              weather={weather}
+              weather={weather.daily}
             />
           </>
         ) : (

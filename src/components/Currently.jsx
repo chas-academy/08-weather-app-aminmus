@@ -21,8 +21,7 @@ const StyledUl = styled.ul`
 const Currently = ({ weather }) => {
   const {
     time, summary, temperature, humidity, windSpeed,
-  } = weather.currently;
-
+  } = weather;
 
   return (
     <Wrapper>

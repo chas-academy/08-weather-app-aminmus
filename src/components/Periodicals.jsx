@@ -14,14 +14,14 @@ const Container = styled.div`
 
 // Container for periodical components (i.e. every 3 hours weather forecast)
 const Periodicals = ({ weather }) => {
-  const { data } = weather.hourly;
+  const { data } = weather;
 
   // Get every third element from the first 24 elements, (weather for every third hour)
   const triHourlyData = data.filter((element, index) => index % 3 === 0 && index < 24);
 
   // Contains the data we want to render
   const today = {
-    ...weather.hourly, triHourlyData,
+    ...weather, triHourlyData,
   };
 
   return (

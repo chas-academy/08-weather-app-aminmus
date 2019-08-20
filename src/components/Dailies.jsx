@@ -14,13 +14,11 @@ const Container = styled.div`
 
 // Container for Daily components to show multiple day weather forecast
 const Dailies = ({ weather }) => {
-  const { daily } = weather;
-
   return (
     <Container>
       <h2>Coming days</h2>
       {
-        daily.data.map((dayWeather) => (
+        weather.data.map((dayWeather) => (
           // Using the Unix Timestamp of the day as key
           <Daily
             key={dayWeather.time.toString()}
