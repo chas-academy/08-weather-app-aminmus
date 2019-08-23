@@ -9,6 +9,7 @@ const Container = styled.div`
   background-color: pink;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 `;
 
 // Container for periodical components (i.e. every 3 hours weather forecast)

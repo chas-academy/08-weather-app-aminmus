@@ -8,6 +8,7 @@ import Daily from './Daily';
 const Container = styled.div`
   background-color: #72e0d1;
   display: flex;
+  justify-content: space-evenly;
   flex-direction: column;
 `;
 

@@ -7,6 +7,8 @@ import { formatDate } from '../utils/date';
 
 const Item = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 `;
 
 const Periodical = ({ weather }) => {

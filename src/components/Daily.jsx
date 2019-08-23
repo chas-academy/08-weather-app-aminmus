@@ -7,6 +7,9 @@ import { formatDate, formatTime } from '../utils/date';
 
 const Day = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 `;
 
 const Night = styled(Day)``;

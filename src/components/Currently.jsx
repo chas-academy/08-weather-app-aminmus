@@ -10,11 +10,10 @@ const Wrapper = styled.div`
 `;
 const Info = styled.div`
   display: flex;
-  flex-direction: column;
-`;
-
-const StyledUl = styled.ul`
-  list-style-type: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 `;
 
 // Component for current weather
@@ -33,16 +32,15 @@ const Currently = ({ weather }) => {
 
   return (
     <Wrapper>
+      <h2>Currently</h2>
       <Info>
         <WeatherIcon darkskyIcon={icon} />
-        <StyledUl>
-          <li>{time}</li>
-          <li>{summary}</li>
-          {/* TODO: Check units from state and add correct units */}
-          <li>{temperature}</li>
-          <li>{humidity}</li>
-          <li>{windSpeed}</li>
-        </StyledUl>
+        <p>{time}</p>
+        <p>{summary}</p>
+        {/* TODO: Check units from state and add correct units */}
+        <p>{temperature}</p>
+        <p>{humidity}</p>
+        <p>{windSpeed}</p>
       </Info>
     </Wrapper>
   );
