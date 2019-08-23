@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import WeatherIcon from './WeatherIcon';
+import { formatDate } from '../utils/date';
 
 const Item = styled.div`
   display: flex;
@@ -14,10 +15,19 @@ const Periodical = ({ weather }) => {
     //  icon,
   } = weather;
 
+  const dateOptions = {
+    weekday: 'long',
+    hour: '2-digit',
+    minute: '2-digit',
+  };
+
+  // Convert from unix timestamp to weekday, hour and minute
+  const date = formatDate(time, dateOptions);
+
   return (
     <Item>
       {/* Unix Timestamp */}
-      <p>{time}</p>
+      <p>{date}</p>
       <p>{summary}</p>
       <WeatherIcon darkskyIcon={icon} />
       {/* TODO: Check units from state and add correct units */}

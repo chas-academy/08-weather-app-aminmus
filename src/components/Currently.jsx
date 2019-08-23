@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import WeatherIcon from './WeatherIcon';
+import { formatTime } from '../utils/date';
 
 const Wrapper = styled.div`
   background-color: lightblue;
@@ -19,15 +20,22 @@ const StyledUl = styled.ul`
 // Component for current weather
 const Currently = ({ weather }) => {
   const {
-    time, summary, temperature, humidity, windSpeed, icon,
+    time: timestamp, summary, temperature, humidity, windSpeed, icon,
   } = weather;
+
+  const timeOptions = {
+    hour: '2-digit',
+    minute: '2-digit',
+  };
+
+  // Convert from unix timestamp to hours and minutes
+  const time = formatTime(timestamp, timeOptions);
 
   return (
     <Wrapper>
       <Info>
         <WeatherIcon darkskyIcon={icon} />
         <StyledUl>
-          {/* Unix Timestamp */}
           <li>{time}</li>
           <li>{summary}</li>
           {/* TODO: Check units from state and add correct units */}

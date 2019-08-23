@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import WeatherIcon from './WeatherIcon';
+import { formatDate, formatTime } from '../utils/date';
 
 const Day = styled.div`
   display: flex;
@@ -15,22 +16,39 @@ const Daily = ({ weather }) => {
   const {
     time, summary, sunriseTime, sunsetTime, temperatureHigh, temperatureLow, icon,
   } = weather;
+
+
+  const dateOptions = {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'numeric',
+  };
+  const timeOptions = {
+    hour: '2-digit',
+    minute: '2-digit',
+  };
+
+  // Convert from unix timestamp to weekday, day and month
+  const date = formatDate(time, dateOptions);
+
+  // Convert from unix timestamp to hours and minutes
+  const sunrise = formatTime(sunriseTime, timeOptions);
+  const sunset = formatTime(sunsetTime, timeOptions);
+
   return (
     <>
       <Day>
-        {/* Unix Timestamp, weekday and date */}
-        <p>{time}</p>
-        {/* TODO: Create and integrate a dynamic icon picker, below icon is placeholder */}
+        <p>{date}</p>
         <WeatherIcon darkskyIcon={icon} />
         <p>{summary}</p>
-        <p>{sunriseTime}</p>
+        <p>{sunrise}</p>
         <p>{temperatureHigh}</p>
       </Day>
 
       <Night>
         <p>Night</p>
         <WeatherIcon darkskyIcon={icon} />
-        <p>{sunsetTime}</p>
+        <p>{sunset}</p>
         <p>{temperatureLow}</p>
       </Night>
     </>
