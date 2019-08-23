@@ -9,6 +9,7 @@ const Item = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  align-items: center;
 `;
 
 const Periodical = ({ weather }) => {
