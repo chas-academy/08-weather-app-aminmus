@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import WeatherIcon from './WeatherIcon';
 
 const Wrapper = styled.div`
   background-color: lightblue;
@@ -19,14 +19,13 @@ const StyledUl = styled.ul`
 // Component for current weather
 const Currently = ({ weather }) => {
   const {
-    time, summary, temperature, humidity, windSpeed,
+    time, summary, temperature, humidity, windSpeed, icon,
   } = weather;
 
   return (
     <Wrapper>
       <Info>
-        {/* TODO: Create and integrate a dynamic icon picker, below icon is placeholder */}
-        <FontAwesomeIcon icon="sun" />
+        <WeatherIcon darkskyIcon={icon} />
         <StyledUl>
           {/* Unix Timestamp */}
           <li>{time}</li>

@@ -12,22 +12,21 @@ const Container = styled.div`
 `;
 
 // Container for Daily components to show multiple day weather forecast
-const Dailies = ({ weather }) => {
-  return (
-    <Container>
-      <h2>Coming days</h2>
-      {
-        weather.data.map((dayWeather) => (
-          // Using the Unix Timestamp of the day as key
-          <Daily
-            key={dayWeather.time.toString()}
-            weather={dayWeather}
-          />
-        ))
-      }
-    </Container>
-  );
-};
+const Dailies = ({ weather }) => (
+  <Container>
+    <h2>Coming days</h2>
+    <h3>{weather.summary}</h3>
+    {
+      weather.data.map((dayWeather) => (
+        // Using the Unix Timestamp of the day as key
+        <Daily
+          key={dayWeather.time.toString()}
+          weather={dayWeather}
+        />
+      ))
+    }
+  </Container>
+);
 
 Dailies.propTypes = {
   weather: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number]),

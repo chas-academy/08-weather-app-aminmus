@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import WeatherIcon from './WeatherIcon';
 
 const Item = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ const Item = styled.div`
 
 const Periodical = ({ weather }) => {
   const {
-    time, summary, temperature,
+    time, summary, temperature, icon,
     //  icon,
   } = weather;
 
@@ -18,8 +19,7 @@ const Periodical = ({ weather }) => {
       {/* Unix Timestamp */}
       <p>{time}</p>
       <p>{summary}</p>
-      {/* TODO: Create and integrate a dynamic icon picker, below icon is placeholder */}
-      <FontAwesomeIcon icon="sun" />
+      <WeatherIcon darkskyIcon={icon} />
       {/* TODO: Check units from state and add correct units */}
       <p>{temperature}</p>
     </Item>

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import WeatherIcon from './WeatherIcon';
 
 const Day = styled.div`
   display: flex;
@@ -12,8 +13,7 @@ const Night = styled(Day)``;
 
 const Daily = ({ weather }) => {
   const {
-    time, summary, sunriseTime, sunsetTime, temperatureHigh, temperatureLow,
-    //  icon,
+    time, summary, sunriseTime, sunsetTime, temperatureHigh, temperatureLow, icon,
   } = weather;
   return (
     <>
@@ -21,7 +21,7 @@ const Daily = ({ weather }) => {
         {/* Unix Timestamp, weekday and date */}
         <p>{time}</p>
         {/* TODO: Create and integrate a dynamic icon picker, below icon is placeholder */}
-        <FontAwesomeIcon icon="sun" />
+        <WeatherIcon darkskyIcon={icon} />
         <p>{summary}</p>
         <p>{sunriseTime}</p>
         <p>{temperatureHigh}</p>
@@ -29,7 +29,7 @@ const Daily = ({ weather }) => {
 
       <Night>
         <p>Night</p>
-        <FontAwesomeIcon icon="sun" />
+        <WeatherIcon darkskyIcon={icon} />
         <p>{sunsetTime}</p>
         <p>{temperatureLow}</p>
       </Night>
