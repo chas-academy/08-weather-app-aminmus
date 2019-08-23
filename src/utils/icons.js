@@ -12,11 +12,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 /*
-** This 'icons' object represents what icons should be used for what icon code.
-** Properties are Darksky icon codes, keys are font-awesome icon names.
+** This 'iconsLookup' object represents what icons should be used for what icon code.
+** Keys are Darksky icon codes, values are font-awesome icon names.
 ** const icons = { darksky-icon-code: 'font-awesome icon name' }
 */
-const icons = {
+const iconsLookup = {
   'clear-day': 'sun',
   'clear-night': 'moon',
   rain: 'cloud-rain',
@@ -42,4 +42,4 @@ const loadIcons = () => library.add(
   faCloudMoon,
 );
 
-export { icons, loadIcons };
+export { iconsLookup, loadIcons };
