@@ -27,7 +27,7 @@ const Periodical = ({ weather }) => {
   // Convert from unix timestamp to weekday, hour and minute
   const date = formatDate(time, dateOptions);
 
-  const temp = `${Math.round(temperature)}`;
+  const temp = `${Math.round(temperature)}°`;
 
   return (
     <Item>

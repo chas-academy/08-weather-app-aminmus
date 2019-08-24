@@ -38,8 +38,8 @@ const Daily = ({ weather }) => {
   const sunrise = formatTime(sunriseTime, timeOptions);
   const sunset = formatTime(sunsetTime, timeOptions);
 
-  const tempHigh = `${Math.round(temperatureHigh)}`;
-  const tempLow = `${Math.round(temperatureLow)}`;
+  const tempHigh = `${Math.round(temperatureHigh)}°`;
+  const tempLow = `${Math.round(temperatureLow)}°`;
 
   return (
     <>

@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tempUnits: 'si',
+      units: 'si',
     };
 
     // Only need to bind if we actually pass these functions to an element or component
@@ -41,9 +41,9 @@ class App extends Component {
   // Set weather in state
   async setWeather(location) {
     const { fetchWeather } = this.props;
-    const { tempUnits } = this.state;
+    const { units } = this.state;
     try {
-      const weather = await fetchWeather(location, tempUnits);
+      const weather = await fetchWeather(location, units);
       this.setState({ weather });
 
       return console.log('Weather', weather);
@@ -66,7 +66,7 @@ class App extends Component {
   }
 
   render() {
-    const { weather } = this.state;
+    const { weather, units } = this.state;
 
     return (
       <div className="App">
@@ -74,12 +74,15 @@ class App extends Component {
           <>
             <Currently
               weather={weather.currently}
+              units={units}
             />
             <Periodicals
               weather={weather.hourly}
+              units={units}
             />
             <Dailies
               weather={weather.daily}
+              units={units}
             />
           </>
         ) : (

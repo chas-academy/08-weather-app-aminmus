@@ -30,9 +30,10 @@ const Currently = ({ weather }) => {
   // Convert from unix timestamp to hours and minutes
   const time = formatTime(timestamp, timeOptions);
 
-  const temp = Math.round(temperature);
+  const temp = `${Math.round(temperature)}°`;
+
   const humidityPercentage = humidity.toLocaleString(undefined, { style: 'percent' });
-  const wind = `${windSpeed} m/s`;
+  const wind = `Wind speed ${windSpeed} m/s`;
 
   return (
     <Wrapper>
