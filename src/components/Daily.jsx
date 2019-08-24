@@ -38,6 +38,9 @@ const Daily = ({ weather }) => {
   const sunrise = formatTime(sunriseTime, timeOptions);
   const sunset = formatTime(sunsetTime, timeOptions);
 
+  const tempHigh = `${Math.round(temperatureHigh)}`;
+  const tempLow = `${Math.round(temperatureLow)}`;
+
   return (
     <>
       <Day>
@@ -45,14 +48,14 @@ const Daily = ({ weather }) => {
         <WeatherIcon darkskyIcon={icon} />
         <p>{summary}</p>
         <p>{sunrise}</p>
-        <p>{temperatureHigh}</p>
+        <p>{tempHigh}</p>
       </Day>
 
       <Night>
         <p>Night</p>
         <WeatherIcon darkskyIcon={icon} />
         <p>{sunset}</p>
-        <p>{temperatureLow}</p>
+        <p>{tempLow}</p>
       </Night>
     </>
   );

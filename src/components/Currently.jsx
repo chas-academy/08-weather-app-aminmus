@@ -30,6 +30,10 @@ const Currently = ({ weather }) => {
   // Convert from unix timestamp to hours and minutes
   const time = formatTime(timestamp, timeOptions);
 
+  const temp = Math.round(temperature);
+  const humidityPercentage = humidity.toLocaleString(undefined, { style: 'percent' });
+  const wind = `${windSpeed} m/s`;
+
   return (
     <Wrapper>
       <h2>Currently</h2>
@@ -38,9 +42,9 @@ const Currently = ({ weather }) => {
         <p>{time}</p>
         <p>{summary}</p>
         {/* TODO: Check units from state and add correct units */}
-        <p>{temperature}</p>
-        <p>{humidity}</p>
-        <p>{windSpeed}</p>
+        <p>{temp}</p>
+        <p>{humidityPercentage}</p>
+        <p>{wind}</p>
       </Info>
     </Wrapper>
   );
