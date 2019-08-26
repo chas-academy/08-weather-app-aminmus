@@ -1,5 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  :hover,
+  :focus {
+    background: pink;
+}
+
+:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+:active {
+    transform: scale(0.99);
+}
+`;
 
 const UnitsButton = ({ handleClick, units }) => {
   let textContent;
@@ -8,7 +25,7 @@ const UnitsButton = ({ handleClick, units }) => {
 
 
   return (
-    <button onClick={handleClick} type="button" value={units}>{textContent}</button>
+    <Button onClick={handleClick} type="button" value={units}>{textContent}</Button>
   );
 };
 

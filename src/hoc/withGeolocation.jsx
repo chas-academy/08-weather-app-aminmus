@@ -15,10 +15,7 @@ const withGeolocation = (WrappedComponent) => {
     );
   });
 
-  return (props) => (
-    // Wrapped component with location inside state(?)
-    <WrappedComponent fetchLocation={fetchLocation} {...props} />
-  );
+  return (props) => <WrappedComponent fetchLocation={fetchLocation} {...props} />;
 };
 
 export default withGeolocation;
