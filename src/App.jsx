@@ -7,6 +7,7 @@ import Currently from './components/Currently';
 import Periodicals from './components/Periodicals';
 import Dailies from './components/Dailies';
 import LoadingIndicator from './components/LoadingIndicator';
+import UnitsButton from './components/UnitsButton';
 
 class App extends Component {
   constructor(props) {
@@ -18,23 +19,21 @@ class App extends Component {
     // Only need to bind if we actually pass these functions to an element or component
     this.setWeather = this.setWeather.bind(this);
     this.setLocation = this.setLocation.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   async componentDidMount() {
     // Get the location and set it in State
-    this.setLocation();
+    const location = await this.setLocation();
+    this.setWeather(location);
   }
 
-  async componentDidUpdate() {
-    // TODO: Change below to allow setting a new weather on location switch
-    const { location, weather } = this.state;
+  componentDidUpdate(prevProps, prevState) {
+    const { units, location } = this.state;
 
-    // This prevents making unnecessary API calls
-    if (location && !weather) {
+    console.log('updated');
+    if (units !== prevState.units) {
       this.setWeather(location);
-      console.log('location set');
-    } else {
-      console.log('location already set, no new weather will be set');
     }
   }
 
@@ -59,17 +58,24 @@ class App extends Component {
       const location = await fetchLocation();
       this.setState({ location });
 
-      return console.log('Location', location);
+      console.log('Location', location);
+      return location;
     } catch (error) {
       return console.error(error.message);
     }
   }
 
+  handleClick() {
+    this.setState((prevstate) => ({
+      units: prevstate.units === 'si' ? 'us' : 'si',
+    }));
+  }
+
   render() {
     const { weather, units } = this.state;
-
     return (
       <div className="App">
+        <UnitsButton handleClick={this.handleClick} units={units} />
         {weather ? (
           <>
             <Currently

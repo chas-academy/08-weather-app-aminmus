@@ -17,7 +17,7 @@ const Info = styled.div`
 `;
 
 // Component for current weather
-const Currently = ({ weather }) => {
+const Currently = ({ weather, units }) => {
   const {
     time: timestamp, summary, temperature, humidity, windSpeed, icon,
   } = weather;
@@ -33,7 +33,7 @@ const Currently = ({ weather }) => {
   const temp = `${Math.round(temperature)}°`;
 
   const humidityPercentage = humidity.toLocaleString(undefined, { style: 'percent' });
-  const wind = `Wind speed ${windSpeed} m/s`;
+  const wind = `Wind speed ${windSpeed} ${units === 'si' ? 'm/s' : 'mph'}`;
 
   return (
     <Wrapper>
@@ -42,7 +42,6 @@ const Currently = ({ weather }) => {
         <WeatherIcon darkskyIcon={icon} />
         <p>{time}</p>
         <p>{summary}</p>
-        {/* TODO: Check units from state and add correct units */}
         <p>{temp}</p>
         <p>{humidityPercentage}</p>
         <p>{wind}</p>
@@ -53,6 +52,7 @@ const Currently = ({ weather }) => {
 
 Currently.propTypes = {
   weather: PropTypes.oneOfType([PropTypes.object, PropTypes.string, PropTypes.number]),
+  units: PropTypes.string.isRequired,
 };
 
 Currently.defaultProps = {

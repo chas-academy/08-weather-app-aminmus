@@ -15,7 +15,6 @@ const Item = styled.div`
 const Periodical = ({ weather }) => {
   const {
     time, summary, temperature, icon,
-    //  icon,
   } = weather;
 
   const dateOptions = {
@@ -31,11 +30,9 @@ const Periodical = ({ weather }) => {
 
   return (
     <Item>
-      {/* Unix Timestamp */}
       <p>{date}</p>
       <p>{summary}</p>
       <WeatherIcon darkskyIcon={icon} />
-      {/* TODO: Check units from state and add correct units */}
       <p>{temp}</p>
     </Item>
   );
