@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import withWeather from './hoc/withWeather';
 import withGeolocation from './hoc/withGeolocation';
@@ -8,6 +9,11 @@ import Periodicals from './components/Periodicals';
 import Dailies from './components/Dailies';
 import LoadingIndicator from './components/LoadingIndicator';
 import UnitsButton from './components/UnitsButton';
+
+const AppContainer = styled.div`
+  color: #191D32;
+  /* background-color: honeydew; */
+`;
 
 class App extends Component {
   constructor(props) {
@@ -74,7 +80,7 @@ class App extends Component {
   render() {
     const { weather, units } = this.state;
     return (
-      <div className="App">
+      <AppContainer className="App">
         <UnitsButton handleClick={this.handleClick} units={units} />
         {weather ? (
           <>
@@ -92,9 +98,9 @@ class App extends Component {
             />
           </>
         ) : (
-          <LoadingIndicator />
-        )}
-      </div>
+            <LoadingIndicator />
+          )}
+      </AppContainer>
     );
   }
 }

@@ -10,6 +10,10 @@ const Item = styled.div`
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
+  
+  > * {
+    margin: 1rem .5rem;
+  }
 `;
 
 const Periodical = ({ weather }) => {

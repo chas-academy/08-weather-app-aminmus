@@ -10,6 +10,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  > * {
+    padding: 0.5rem;
+    margin: 0;
+  }
 `;
 
 // Container for periodical components (i.e. every 3 hours weather forecast)

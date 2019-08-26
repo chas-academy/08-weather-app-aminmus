@@ -10,10 +10,13 @@ const Day = styled.div`
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+
+  > * {
+    margin: 1rem .5rem;
+  }
 `;
 
 const Night = styled(Day)``;
-
 
 const Daily = ({ weather }) => {
   const {

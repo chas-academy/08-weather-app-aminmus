@@ -7,13 +7,23 @@ import { formatTime } from '../utils/date';
 
 const Wrapper = styled.div`
   background-color: lightblue;
+  padding: 0rem;
+  > * {
+    padding: 0.5rem;
+    margin: 0;
+  }
 `;
+
 const Info = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
+
+  > * {
+    margin: 0.5rem;
+  }
 `;
 
 // Component for current weather

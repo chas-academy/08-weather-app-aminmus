@@ -10,6 +10,11 @@ const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
+  padding: 0rem;
+  > * {
+    padding: 0.5rem;
+    margin: 0;
+  }
 `;
 
 // Container for Daily components to show multiple day weather forecast
