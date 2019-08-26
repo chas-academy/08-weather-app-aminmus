@@ -22,7 +22,7 @@ const Info = styled.div`
   flex-wrap: wrap;
 
   > * {
-    margin: 0.5rem;
+    margin: 1rem .5rem;
   }
 `;
 
