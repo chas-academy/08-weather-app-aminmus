@@ -6,8 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/**/*.js",
-    "tri": "eslint --debug ./src/routes/routes.js"
+    "lint": "eslint src/**/*.js"
   },
   "author": "Amin Mushehid",
   "license": "ISC",

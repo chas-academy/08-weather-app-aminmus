@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const fetch = require('node-fetch');
 
+// Darksky api request
 router.get('/weather/:latitude/:longitude/:units', async (req, res) => {
   try {
     const { latitude, longitude, units } = req.params;
@@ -10,6 +11,21 @@ router.get('/weather/:latitude/:longitude/:units', async (req, res) => {
     const weather = await weatherRequest.json();
 
     return res.status(weatherRequest.status).send(weather);
+  } catch (error) {
+    return res.status(500).send({ error: { message: error.message } });
+  }
+});
+
+// Reverse geocoding request (Google)
+router.get('/adress/:latitude/:longitude', async (req, res) => {
+  try {
+    const { latitude, longitude } = req.params;
+
+    const adressRequest = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.GOOGLE_GEOCODING_KEY}`);
+
+    const adress = await adressRequest.json();
+
+    return res.status(adressRequest.status).send(adress);
   } catch (error) {
     return res.status(500).send({ error: { message: error.message } });
   }
