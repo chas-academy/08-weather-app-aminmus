@@ -12,7 +12,13 @@ import UnitsButton from './components/UnitsButton';
 
 const AppContainer = styled.div`
   color: #191D32;
-  /* background-color: honeydew; */
+  background-color: purple;
+  width: 100%;
+  height: 100%;
+`;
+
+const BtnWrapper = styled.div`
+  padding: 1rem;
 `;
 
 class App extends Component {
@@ -81,7 +87,9 @@ class App extends Component {
     const { weather, units } = this.state;
     return (
       <AppContainer className="App">
-        <UnitsButton handleClick={this.handleClick} units={units} />
+        <BtnWrapper>
+          <UnitsButton handleClick={this.handleClick} units={units} />
+        </BtnWrapper>
         {weather ? (
           <>
             <Currently
