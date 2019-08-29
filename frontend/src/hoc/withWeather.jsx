@@ -2,14 +2,14 @@
 import React from 'react';
 
 // High Order Component for fetching weather data
-// `https://api.darksky.net/forecast/${key}/${latitude},${longitude}?${optionalParams}`
 const withWeather = (WrappedComponent) => {
   const fetchWeather = async (location, units) => {
     try {
-      const url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/44ac77a2c728fd9b159d612f3f3b227f/${location.latitude},${location.longitude}?units=${units}`;
+      // TODO: Add server root url for production here
+      const url = `/api/weather/${location.latitude}/${location.longitude}/${units}`;
       const weather = await fetch(url);
 
-      return weather.json();
+      return await weather.json();
     } catch (error) {
       return console.error(error.message);
     }
