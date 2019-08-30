@@ -21,7 +21,8 @@ router.get('/adress/:latitude/:longitude', async (req, res) => {
   try {
     const { latitude, longitude } = req.params;
 
-    const adressRequest = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.GOOGLE_GEOCODING_KEY}`);
+    // Approximate adress
+    const adressRequest = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.GOOGLE_GEOCODING_KEY}&location_type=approximate`);
 
     const adress = await adressRequest.json();
 
