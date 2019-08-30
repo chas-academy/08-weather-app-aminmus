@@ -53,7 +53,7 @@ const Currently = ({ weather, units }) => {
         <p>{time}</p>
         <p>{summary}</p>
         <p>{temp}</p>
-        <p>{humidityPercentage}</p>
+        <p>{`Humidity: ${humidityPercentage}`}</p>
         <p>{wind}</p>
       </Info>
     </Wrapper>
