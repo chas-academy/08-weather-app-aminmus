@@ -9,16 +9,26 @@ import Periodicals from './components/Periodicals';
 import Dailies from './components/Dailies';
 import LoadingIndicator from './components/LoadingIndicator';
 import UnitsButton from './components/UnitsButton';
+import reverseGeo from './utils/reverseGeo';
 
 const AppContainer = styled.div`
   color: #191D32;
-  background-color: purple;
+  /* background-color: purple; */
   width: 100%;
   height: 100%;
 `;
 
 const BtnWrapper = styled.div`
   padding: 1rem;
+`;
+
+const Adress = styled.div`
+  text-align: center;
+
+  > * {
+    padding: 0.5rem;
+    margin: 0;
+  }
 `;
 
 class App extends Component {
@@ -38,6 +48,7 @@ class App extends Component {
     // Get the location and set it in State
     const location = await this.setLocation();
     this.setWeather(location);
+    this.setAddress(location);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -77,6 +88,19 @@ class App extends Component {
     }
   }
 
+  async setAddress(location) {
+    const { latitude, longitude } = location;
+
+    try {
+      const address = await reverseGeo(latitude, longitude);
+      this.setState({ address });
+
+      return console.log('Address', address);
+    } catch (error) {
+      return console.error(error.message);
+    }
+  }
+
   handleClick() {
     this.setState((prevstate) => ({
       units: prevstate.units === 'si' ? 'us' : 'si',
@@ -84,12 +108,15 @@ class App extends Component {
   }
 
   render() {
-    const { weather, units } = this.state;
+    const { weather, units, address } = this.state;
     return (
       <AppContainer className="App">
         <BtnWrapper>
           <UnitsButton handleClick={this.handleClick} units={units} />
         </BtnWrapper>
+        <Adress>
+          <h2>{address}</h2>
+        </Adress>
         {weather ? (
           <>
             <Currently
@@ -106,8 +133,8 @@ class App extends Component {
             />
           </>
         ) : (
-          <LoadingIndicator />
-        )}
+            <LoadingIndicator />
+          )}
       </AppContainer>
     );
   }

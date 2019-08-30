@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Periodical from './Periodical';
 
 const Container = styled.div`
-  background-color: pink;
+  /* background-color: pink; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

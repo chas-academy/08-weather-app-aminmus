@@ -6,7 +6,7 @@ import WeatherIcon from './WeatherIcon';
 import { formatTime } from '../utils/date';
 
 const Wrapper = styled.div`
-  background-color: lightblue;
+  /* background-color: lightblue; */
   padding: 0rem;
   > * {
     padding: 0.5rem;

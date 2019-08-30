@@ -7,7 +7,7 @@ const Button = styled.button`
   display: block;
     margin: .5rem .5rem .5rem auto;
     padding: 0.5rem;
-    background-color: #b4ffff80;
+    /* background-color: #b4ffff80; */
 
   :hover,
   :focus {
