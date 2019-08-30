@@ -62,9 +62,9 @@ class App extends Component {
 
   // Set weather in state
   async setWeather(location) {
-    const { fetchWeather } = this.props;
-    const { units } = this.state;
     try {
+      const { fetchWeather } = this.props;
+      const { units } = this.state;
       const weather = await fetchWeather(location, units);
       this.setState({ weather });
 
@@ -76,8 +76,8 @@ class App extends Component {
 
   // Set location in state
   async setLocation() {
-    const { fetchLocation } = this.props;
     try {
+      const { fetchLocation } = this.props;
       const location = await fetchLocation();
       this.setState({ location });
 
@@ -89,9 +89,8 @@ class App extends Component {
   }
 
   async setAddress(location) {
-    const { latitude, longitude } = location;
-
     try {
+      const { latitude, longitude } = location;
       const address = await reverseGeo(latitude, longitude);
       this.setState({ address });
 
@@ -133,8 +132,8 @@ class App extends Component {
             />
           </>
         ) : (
-            <LoadingIndicator />
-          )}
+          <LoadingIndicator />
+        )}
       </AppContainer>
     );
   }
