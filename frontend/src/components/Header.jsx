@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -17,17 +17,25 @@ const Adress = styled.div`
   }
 `;
 
-const Header = (handleClick, units, location) => {
-  return (
-    <>
-      <BtnWrapper>
-        <UnitsButton handleClick={handleClick} units={units} />
-      </BtnWrapper>
-      <Adress>
-        <h2>{location}</h2>
-      </Adress>
-    </>
-  );
+const Header = ({ handleClick, units, address }) => (
+  <>
+    <BtnWrapper>
+      <UnitsButton handleClick={handleClick} units={units} />
+    </BtnWrapper>
+    <Adress>
+      <h2>{address}</h2>
+    </Adress>
+  </>
+);
+
+Header.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  units: PropTypes.string.isRequired,
+  address: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+};
+
+Header.defaultProps = {
+  address: false,
 };
 
 export default Header;

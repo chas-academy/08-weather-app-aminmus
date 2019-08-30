@@ -8,27 +8,13 @@ import Currently from './components/Currently';
 import Periodicals from './components/Periodicals';
 import Dailies from './components/Dailies';
 import LoadingIndicator from './components/LoadingIndicator';
-import UnitsButton from './components/UnitsButton';
+import Header from './components/Header';
 import reverseGeo from './utils/reverseGeo';
 
 const AppContainer = styled.div`
   color: #191D32;
-  /* background-color: purple; */
   width: 100%;
   height: 100%;
-`;
-
-const BtnWrapper = styled.div`
-  padding: 1rem;
-`;
-
-const Adress = styled.div`
-  text-align: center;
-
-  > * {
-    padding: 0.5rem;
-    margin: 0;
-  }
 `;
 
 class App extends Component {
@@ -110,12 +96,7 @@ class App extends Component {
     const { weather, units, address } = this.state;
     return (
       <AppContainer className="App">
-        <BtnWrapper>
-          <UnitsButton handleClick={this.handleClick} units={units} />
-        </BtnWrapper>
-        <Adress>
-          <h2>{address}</h2>
-        </Adress>
+        <Header handleClick={this.handleClick} address={address} units={units} />
         {weather ? (
           <>
             <Currently
