@@ -9,7 +9,6 @@ const Container = styled.div`
   /* background-color: pink; */
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 
   > * {
     padding: 0.5rem;

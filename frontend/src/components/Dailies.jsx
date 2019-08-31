@@ -7,7 +7,6 @@ import Daily from './Daily';
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
   padding: 0rem;
 
