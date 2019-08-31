@@ -6,7 +6,7 @@ import WeatherIcon from './WeatherIcon';
 import { formatDate, formatTime } from '../utils/date';
 
 const Wrapper = styled.div`
-    border: 2px solid midnightblue;
+    border: 2px solid hsla(51, 58%, 58%, 25%);
     margin: .5rem;
 
   > * {
@@ -27,8 +27,7 @@ const Day = styled.div`
 `;
 
 const Night = styled(Day)`
-  /* Midnightblue, slightly transparent */
-  border-top: 2px solid hsl(240, 64%, 27%, 25%);  
+  border-top: 2px solid hsla(51, 58%, 58%, 25%);  
 `;
 
 const Daily = ({ weather }) => {

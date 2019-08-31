@@ -4,28 +4,22 @@ import styled from 'styled-components';
 
 import UnitsButton from './UnitsButton';
 
-const BtnWrapper = styled.div`
+const Wrapper = styled.header`
   padding: 1rem;
 `;
 
-const Adress = styled.div`
+const Address = styled.h2`
   text-align: center;
 
-  > * {
-    padding: 0.5rem;
-    margin: 0;
-  }
+  padding: 1rem;
+  margin-top: 2rem ;
 `;
 
 const Header = ({ handleClick, units, address }) => (
-  <>
-    <BtnWrapper>
-      <UnitsButton handleClick={handleClick} units={units} />
-    </BtnWrapper>
-    <Adress>
-      <h2>{address}</h2>
-    </Adress>
-  </>
+  <Wrapper>
+    <UnitsButton handleClick={handleClick} units={units} />
+    <Address>{address}</Address>
+  </Wrapper>
 );
 
 Header.propTypes = {

@@ -3,25 +3,36 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  
   display: block;
-    margin: .5rem .5rem .5rem auto;
-    padding: 0.5rem;
-    /* background-color: #b4ffff80; */
+  margin: .5rem .5rem .5rem auto;
+  padding: 1rem;
+
+  text-decoration: none;
+  color: #3C3744;
+  background: #D2BF55;
+
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  border: none;
 
   :hover,
   :focus {
-    background: pink;
-}
+    background: #BAA94A;
+  }
 
-:focus {
-    outline: 1px solid #fff;
+  :focus {
+    outline: 1px solid #D2BF55;
     outline-offset: -4px;
-}
+  }
 
-:active {
+  :active {
     transform: scale(0.99);
-}
+  }
 `;
 
 const UnitsButton = ({ handleClick, units }) => {

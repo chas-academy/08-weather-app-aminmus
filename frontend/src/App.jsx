@@ -12,9 +12,15 @@ import Header from './components/Header';
 import reverseGeo from './utils/reverseGeo';
 
 const AppContainer = styled.div`
-  color: #191D32;
+  color: #d3c1c3;
+
   width: 100%;
   height: 100%;
+  background: #3C3744;
+  
+  h1, h2, h3 {
+    color: #FFEAEE;
+  }
 `;
 
 class App extends Component {
