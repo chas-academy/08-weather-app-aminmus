@@ -16,6 +16,10 @@ const AppContainer = styled.div`
 
   height: 100%;
   width: 100%;
+
+  /* Looks weird bigger than this (can improve with media query), margin for centering */
+  max-width: 1024px;
+  margin: auto;
   
   h1, h2, h3 {
     color: #FFEAEE;
