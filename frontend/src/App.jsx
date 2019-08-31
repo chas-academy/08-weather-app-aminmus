@@ -122,8 +122,8 @@ class App extends Component {
             />
           </>
         ) : (
-            <LoadingIndicator />
-          )}
+          <LoadingIndicator />
+        )}
       </AppContainer>
     );
   }
