@@ -21,6 +21,10 @@ const AppContainer = styled.div`
   h1, h2, h3 {
     color: #FFEAEE;
   }
+
+  > * {
+    margin: 0 .5rem;
+  }
 `;
 
 class App extends Component {
