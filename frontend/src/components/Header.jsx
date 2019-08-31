@@ -10,9 +10,7 @@ const Wrapper = styled.header`
 
 const Address = styled.h2`
   text-align: center;
-
   padding: 1rem;
-  margin-top: 2rem ;
 `;
 
 const Header = ({ handleClick, units, address }) => (

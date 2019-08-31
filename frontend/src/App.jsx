@@ -14,9 +14,8 @@ import reverseGeo from './utils/reverseGeo';
 const AppContainer = styled.div`
   color: #d3c1c3;
 
-  width: 100%;
   height: 100%;
-  background: #3C3744;
+  width: 100%;
   
   h1, h2, h3 {
     color: #FFEAEE;
@@ -106,9 +105,9 @@ class App extends Component {
     const { weather, units, address } = this.state;
     return (
       <AppContainer className="App">
-        <Header handleClick={this.handleClick} address={address} units={units} />
         {weather ? (
           <>
+            <Header handleClick={this.handleClick} address={address} units={units} />
             <Currently
               weather={weather.currently}
               units={units}
@@ -123,8 +122,8 @@ class App extends Component {
             />
           </>
         ) : (
-          <LoadingIndicator />
-        )}
+            <LoadingIndicator />
+          )}
       </AppContainer>
     );
   }

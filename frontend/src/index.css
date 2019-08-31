@@ -1,4 +1,10 @@
- body {
+ html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #3C3744;
   margin: 0;
   padding: 0;
   /* Create React App default styling */
@@ -17,7 +23,7 @@
   .sk-three-bounce .sk-child {
     width: 20px;
     height: 20px;
-    background-color: #333;
+    background-color: #d2bf56;
     border-radius: 100%;
     display: inline-block;
     -webkit-animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
