@@ -5,6 +5,16 @@ import styled from 'styled-components';
 import WeatherIcon from './WeatherIcon';
 import { formatDate, formatTime } from '../utils/date';
 
+const Wrapper = styled.div`
+    border: 2px solid midnightblue;
+    margin: .5rem;
+
+  > * {
+    padding: .5rem 0;
+    margin: 0 .5rem;
+  }
+`;
+
 const Day = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -16,7 +26,10 @@ const Day = styled.div`
   }
 `;
 
-const Night = styled(Day)``;
+const Night = styled(Day)`
+  /* Midnightblue, slightly transparent */
+  border-top: 2px solid hsl(240, 64%, 27%, 25%);  
+`;
 
 const Daily = ({ weather }) => {
   const {
@@ -45,7 +58,7 @@ const Daily = ({ weather }) => {
   const tempLow = `${Math.round(temperatureLow)}°`;
 
   return (
-    <>
+    <Wrapper>
       <Day>
         <p>{date}</p>
         <WeatherIcon darkskyIcon={icon} />
@@ -60,7 +73,7 @@ const Daily = ({ weather }) => {
         <p>{`Sunset: ${sunset}`}</p>
         <p>{`Low: ${tempLow}`}</p>
       </Night>
-    </>
+    </Wrapper>
   );
 };
 
