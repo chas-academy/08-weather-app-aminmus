@@ -50,15 +50,15 @@ const Daily = ({ weather }) => {
         <p>{date}</p>
         <WeatherIcon darkskyIcon={icon} />
         <p>{summary}</p>
-        <p>{sunrise}</p>
-        <p>{tempHigh}</p>
+        <p>{`Sunrise: ${sunrise}`}</p>
+        <p>{`High: ${tempHigh}`}</p>
       </Day>
 
       <Night>
         <p>Night</p>
         <WeatherIcon darkskyIcon={icon} />
-        <p>{sunset}</p>
-        <p>{tempLow}</p>
+        <p>{`Sunset: ${sunset}`}</p>
+        <p>{`Low: ${tempLow}`}</p>
       </Night>
     </>
   );
