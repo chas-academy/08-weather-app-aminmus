@@ -20,5 +20,7 @@
     "plugins": [
         "react"
     ],
-    "rules": {}
+    "rules": {
+        "react/jsx-one-expression-per-line":[{"allow": "single-child"}],
+    }
 }

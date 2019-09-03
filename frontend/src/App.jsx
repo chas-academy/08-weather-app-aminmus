@@ -10,6 +10,7 @@ import Dailies from './components/Dailies';
 import LoadingIndicator from './components/LoadingIndicator';
 import Header from './components/Header';
 import reverseGeo from './utils/reverseGeo';
+import Footer from './components/Footer';
 
 const AppContainer = styled.div`
   color: #d3c1c3;
@@ -128,6 +129,7 @@ class App extends Component {
         ) : (
           <LoadingIndicator />
         )}
+        <Footer />
       </AppContainer>
     );
   }
