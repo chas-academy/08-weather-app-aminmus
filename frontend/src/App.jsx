@@ -54,7 +54,6 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { units, location } = this.state;
 
-    console.log('updated');
     if (units !== prevState.units) {
       this.setWeather(location);
     }
@@ -68,7 +67,6 @@ class App extends Component {
       const weather = await fetchWeather(location, units);
       this.setState({ weather });
 
-      return console.log('Weather', weather);
     } catch (error) {
       return console.error(error);
     }
@@ -81,7 +79,6 @@ class App extends Component {
       const location = await fetchLocation();
       this.setState({ location });
 
-      console.log('Location', location);
       return location;
     } catch (error) {
       return console.error(error.message);
@@ -94,7 +91,6 @@ class App extends Component {
       const address = await reverseGeo(latitude, longitude);
       this.setState({ address });
 
-      return console.log('Address', address);
     } catch (error) {
       return console.error(error.message);
     }
